@@ -1,16 +1,10 @@
 #!/usr/bin/python3
 
 
-
-
-
 import sys
 
 
-
 def nQueens(n):
-
-
 
     queens = [0] * n
 
@@ -18,15 +12,13 @@ def nQueens(n):
 
     s = n
 
-
-
     while True:
 
         while(n > 1):
 
-            if valid(queens, n) == True:
+            if valid(queens, n) is True:
 
-                n = n -1
+                n = n - 1
 
             else:
 
@@ -45,8 +37,6 @@ def nQueens(n):
         queens[0] += 1
 
         n = 0
-
-
 
     def valid(queens, n):
 
@@ -72,7 +62,7 @@ def nQueens(n):
 
             x + 1
 
-        i = n +1
+        i = n + 1
 
         while i < s:
 
@@ -88,15 +78,11 @@ def nQueens(n):
 
         return True
 
-
-
     if len(sys.argv) != 2:
 
         print("Usage: nqueens N")
 
         exit(1)
-
-
 
     try:
 
@@ -108,14 +94,10 @@ def nQueens(n):
 
         exit(1)
 
-
-
     if n < 4:
 
         print("N must be at least 4")
 
         exit(1)
-
-
 
     nQueens(n)

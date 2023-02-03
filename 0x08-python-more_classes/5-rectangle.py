@@ -1,14 +1,9 @@
 #!/usr/bin/python3
 
 
-
-
-
 class Rectangle:
 
     """Empty class Rectangle"""
-
-
 
     def __init__(self, width=0, height=0):
 
@@ -22,13 +17,9 @@ class Rectangle:
 
         """
 
-
-
         self.width = width
 
         self.height = height
-
-
 
     def area(self):
 
@@ -37,8 +28,6 @@ class Rectangle:
         res = self.width * self.height
 
         return(res)
-
-
 
     def perimeter(self):
 
@@ -54,8 +43,6 @@ class Rectangle:
 
         return(res)
 
-
-
     def __str__(self):
 
         """prints rectangle"""
@@ -68,8 +55,6 @@ class Rectangle:
 
         return '\n'.join(hashes for i in range(self.height))
 
-
-
     def __repr__(self):
 
         """prints rectangle"""
@@ -78,36 +63,25 @@ class Rectangle:
 
         return("Rectangle({}, {})".format(self.width, self.height))
 
-
-
     def __del__(self):
 
         print("Bye rectangle...")
 
-
-
     @property
-
     def width(self):
 
         """gets width"""
 
         return self.__width
 
-
-
     @property
-
     def height(self):
 
         """gets height"""
 
         return self.__height
 
-
-
     @width.setter
-
     def width(self, value):
 
         """sets width
@@ -128,10 +102,7 @@ class Rectangle:
 
         self.__width = value
 
-
-
     @height.setter
-
     def height(self, value):
 
         """ sets height

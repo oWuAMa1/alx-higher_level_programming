@@ -5,13 +5,9 @@ class Rectangle:
 
     """class Rectangle"""
 
-
-
     number_of_instances = 0
 
     print_symbol = '#'
-
-
 
     def __init__(self, width=0, height=0):
 
@@ -31,8 +27,6 @@ class Rectangle:
 
         Rectangle.number_of_instances += 1
 
-
-
     def area(self):
 
         """computers area"""
@@ -40,8 +34,6 @@ class Rectangle:
         res = self.width * self.height
 
         return(res)
-
-
 
     def perimeter(self):
 
@@ -57,8 +49,6 @@ class Rectangle:
 
         return(res)
 
-
-
     def __str__(self):
 
         """prints rectangle"""
@@ -71,8 +61,6 @@ class Rectangle:
 
         return '\n'.join(hashes for i in range(self.height))
 
-
-
     def __repr__(self):
 
         """prints rectangle"""
@@ -81,15 +69,11 @@ class Rectangle:
 
         return("Rectangle({}, {})".format(self.width, self.height))
 
-
-
     def __del__(self):
 
         print("Bye rectangle...")
 
         Rectangle.number_of_instances -= 1
-
-
 
     def bigger_or_equal(rect_1, rect_2):
 
@@ -121,38 +105,26 @@ class Rectangle:
 
             return(rect_2)
 
-
-
     @classmethod
-
     def print_symbol(cls, symbol):
 
         Rectangle.print_symbol = symbol
 
-
-
     @property
-
     def width(self):
 
         """gets width"""
 
         return self.__width
 
-
-
     @property
-
     def height(self):
 
         """gets height"""
 
         return self.__height
 
-
-
     @width.setter
-
     def width(self, value):
 
         """sets width
@@ -173,10 +145,7 @@ class Rectangle:
 
         self.__width = value
 
-
-
     @height.setter
-
     def height(self, value):
 
         """ sets height
@@ -195,4 +164,4 @@ class Rectangle:
 
             raise ValueError('height must be >= 0')
 
-        self.__height = value 
+        self.__height = value
