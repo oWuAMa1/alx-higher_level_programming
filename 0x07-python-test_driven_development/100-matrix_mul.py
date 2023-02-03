@@ -1,114 +1,65 @@
 #!/usr/bin/python3
 
-# 100-matrix_mul.py
-
-"""Defines a matrix multiplication function."""
-
-
 def matrix_mul(m_a, m_b):
 
-    """Multiply two matrices.
-
-
+    """multiply matrices
 
     Args:
 
-        m_a (list of lists of ints/floats): The first matrix.
+        m_a: matrix a
 
-        m_b (list of lists of ints/floats): The second matrix.
+        m_b: matrix b
 
-    Raises:
-
-        TypeError: If either m_a or m_b is not a list of lists of ints/floats.
-
-        TypeError: If either m_a or m_b is empty.
-
-        TypeError: If either m_a or m_b has different-sized rows.
-
-        ValueError: If m_a and m_b cannot be multiplied.
-
-    Returns:
-
-        A new matrix representing the multiplication of m_a by m_b.
+    Return: multiplication of a and b
 
     """
 
-    if m_a == [] or m_a == [[]]:
+    if all(isinstance(row, list) for row in m_a) is False:
 
-        raise ValueError("m_a can't be empty")
+        raise TypeError('m_a must be a list')
 
-    if m_b == [] or m_b == [[]]:
+    if all(isinstance(row, list) for row in m_b) is False:
 
-        raise ValueError("m_b can't be empty")
+        raise TypeError('m_b must be a list')
 
-    if not isinstance(m_a, list):
+    if m_a == [[]]:
 
-        raise TypeError("m_a must be a list")
+        raise ValueError('m_a can\'t be empty')
 
-    if not isinstance(m_b, list):
+    if m_b == [[]]:
 
-        raise TypeError("m_b must be a list")
+        raise ValueError('m_b can\'t be empty')
 
-    if not all(isinstance(row, list) for row in m_a):
+    if all(isinstance(el, (int, float)) for row in m_a for el in row) is False:
 
-        raise TypeError("m_a must be a list of lists")
+        raise TypeError('m_a should contain only integers or floats')
 
-    if not all(isinstance(row, list) for row in m_b):
+    if all(isinstance(el, (int, float)) for row in m_b for el in row) is False:
 
-        raise TypeError("m_b must be a list of lists")
+        raise TypeError('m_b should contain only integers or floats')
 
-    if not all((isinstance(ele, int) or isinstance(ele, float))
+    a = len(m_a[0])
 
-               for ele in [num for row in m_a for num in row]):
-
-        raise TypeError("m_a should contain only integers or floats")
-
-    if not all((isinstance(ele, int) or isinstance(ele, float))
-
-               for ele in [num for row in m_b for num in row]):
-
-        raise TypeError("m_b should contain only integers or floats")
-
-    if not all(len(row) == len(m_a[0]) for row in m_a):
-
-        raise TypeError("each row of m_a must should be of the same size")
-
-    if not all(len(row) == len(m_b[0]) for row in m_b):
-
-        raise TypeError("each row of m_b must should be of the same size")
-
-    if len(m_a[0]) != len(m_b):
-
-        raise ValueError("m_a and m_b can't be multiplied")
-
-    inverted_b = []
-
-    for r in range(len(m_b[0])):
-
-        new_row = []
-
-        for c in range(len(m_b)):
-
-            new_row.append(m_b[c][r])
-
-        inverted_b.append(new_row)
-
-    new_matrix = []
+    b = len(m_b[0])
 
     for row in m_a:
 
-        new_row = []
+        if len(row) is not a:
 
-        for col in inverted_b:
+            raise TypeError('each row of m_a must should be of the same size')
 
-            prod = 0
+    for row in m_b:
 
-            for i in range(len(inverted_b[0])):
+        if len(row) is not b:
 
-                prod += row[i] * col[i]
+            raise TypeError('each row of m_b must should be of the same size')
 
-            new_row.append(prod)
+    if len(m_a[0]) != len(m_b):
 
-        new_matrix.append(new_row)
+        raise ValueError('m_a and m_b can\'t be multiplied')
 
-    return new_matrix
+    result = [[sum(x * y for x, y in zip(m_a_row, m_b_col))
+
+               for m_b_col in zip(*m_b)] for m_a_row in m_a]
+
+    return(result)
