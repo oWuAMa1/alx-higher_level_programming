@@ -14,7 +14,6 @@ load_from_json_file = __import__('6-load_from_json_file.py').load_from_json_file
 
 
 if __name__ == "__main__":
-
     data = "add_item.json"
 
     if os.path.isfile(data):
@@ -22,7 +21,6 @@ if __name__ == "__main__":
         my_list = load_from_json_file(data)
 
     else:
-
         my_list = []
 
     for i in range(1, len(sys.argv)):
