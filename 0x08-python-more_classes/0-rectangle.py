@@ -5,4 +5,5 @@ class Rectangle:
 
     pass
 
+
 print()
