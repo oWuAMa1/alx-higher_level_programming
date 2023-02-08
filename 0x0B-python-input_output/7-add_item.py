@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" Program that Load, add, save all arguments to a Python list,
+
+and then save them to a file """
 
 import json
 
