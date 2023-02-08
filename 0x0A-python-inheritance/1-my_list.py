@@ -1,20 +1,22 @@
 #!/usr/bin/python3
 
-"""MyList
-
-"""
-
 
 class MyList(list):
 
-    """Contains list
+    """class utilizing list class"""
 
-    """
+    def __init__(self):
+
+        """initializer for MyList"""
+
+        pass
 
     def print_sorted(self):
 
-        """Prints self in sorted format
+        """print sorted list"""
 
-        """
+        res = list.copy(self)
 
-        print(sorted(self))
+        list.sort(res)
+
+        print(res)
