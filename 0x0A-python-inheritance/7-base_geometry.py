@@ -1,34 +1,26 @@
 #!/usr/bin/python3
 
-"""BaseGeometry
-
-"""
+""" Base Geometry Class """
 
 
 class BaseGeometry:
 
-    """Contains functions area(), integer_validator()
-
-    """
+    """ class that improve geometry with integer validator"""
 
     def area(self):
 
-        """Function not implemented yet
-
-        """
+        """ raises an Exception with the message area() is not implemented """
 
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
 
-        """Function that validates `value`
+        """ validates value """
 
-        """
+        if (type(value) is not int):
 
-        if type(value) != int:
+            raise TypeError("{} must be an integer".format(name))
 
-            raise TypeError(name + " must be an integer")
+        if (value <= 0):
 
-        if value <= 0:
-
-            raise ValueError(name + " must be greater than 0")
+            raise ValueError("{} must be greater than 0".format(name))
