@@ -1,22 +1,18 @@
 #!/usr/bin/python3
 
+""" Program that sort a list int """
+
 
 class MyList(list):
 
-    """class utilizing list class"""
-
-    def __init__(self):
-
-        """initializer for MyList"""
-
-        pass
+    """ class that inherist from list """
 
     def print_sorted(self):
 
-        """print sorted list"""
+        """ prints the list, but sorted (ascending sort) """
 
-        res = list.copy(self)
+        new_list = self[:]
 
-        list.sort(res)
+        new_list.sort()
 
-        print(res)
+        print(new_list)
